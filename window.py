@@ -22,7 +22,7 @@ class Window(QMainWindow):
         self.show()
 
         # Play background music
-        self.music = QSound("setting_field2.wav")
+        self.music = QSound("res/sound/setting_field2.wav")
         self.music.play()
 
         # Prevent from resizing
@@ -46,11 +46,11 @@ class Window(QMainWindow):
 
         self.setGeometry(200, 200, 800, 600)
         self.setWindowTitle("Battleships")
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("res/pictures/icon.png"))
 
         # Setting background
         background = QPalette()
-        background.setBrush(QPalette.Background, QBrush(QPixmap("backgroundPE.png")))
+        background.setBrush(QPalette.Background, QBrush(QPixmap("res/pictures/backgroundPE.png")))
         self.setPalette(background)
 
         # Setting player's field
@@ -96,7 +96,7 @@ class Window(QMainWindow):
             self.targetFieldLabel.isGame = True
             self.informativeLabel.setText("Shoot to opponent's field\nShips left: %d" % len(self.playerFieldLabel.gameField.ships))
             self.music.stop()
-            self.music = QSound("gameplay_lel.wav")
+            self.music = QSound("res/sound/gameplay_lel.wav")
             self.music.setLoops(100)
             self.music.play()
             self.readyButton.setText("Playing...")
@@ -145,7 +145,7 @@ class Window(QMainWindow):
     def end_game(self, winner):
         if winner == "Player":
             self.music.stop()
-            self.music = QSound("victory.wav")
+            self.music = QSound("res/sound/victory.wav")
             self.music.play()
 
             self.informativeLabel.setStyleSheet("color: yellow")
@@ -158,7 +158,7 @@ class Window(QMainWindow):
 
         elif winner == "Enemy":
             self.music.stop()
-            self.music = QSound("loss.wav")
+            self.music = QSound("res/sound/loss.wav")
             self.music.play()
 
             self.targetFieldLabel.canUserClick = False

@@ -14,6 +14,6 @@ class Ship:
     def __init__(self, x, y, size, init_id):
         self.coordinates = (x, y)
         self.typeOfShip = size      # Ships can be 4, 3, 2, 1 size
-        self.shipUI = QPixmap(str(size) + ".png")
+        self.shipUI = QPixmap("res/pictures/" + str(size) + ".png")
         self.hp = size
         self.id = init_id

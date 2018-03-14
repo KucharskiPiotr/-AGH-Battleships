@@ -32,7 +32,7 @@ class Field:
         del emptyList           # We won't need this list anymore
 
         self.ships = []
-        self.fieldUI = QPixmap("field.png")
+        self.fieldUI = QPixmap("res/pictures/field.png")
 
     def change_field(self, filename, x, y):
         """Method changes graphic on field - adds new image

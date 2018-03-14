@@ -24,7 +24,7 @@ class Label(QLabel):
         self.newImage = []
         self.iteratorForSettingDirection = 0
         self.isGame = False
-        self.sound = QSound("shot.wav", self)
+        self.sound = QSound("res/sound/shot2.wav", self)
         self.miss_label = []
         self.iteratorForShooting = 0
         self.who = player
@@ -237,7 +237,7 @@ class Label(QLabel):
             if self.gameField.shot[x][y] != -1:
                 if self.who == "Enemy":
                     self.window().inGameLabel.setText("")
-                self.sound2 = QSound("explosion2.wav", self)
+                self.sound2 = QSound("res/sound/explosion2.wav", self)
                 self.sound2.play()
 
                 # Find the ship that was attacked
@@ -247,7 +247,7 @@ class Label(QLabel):
                         break
 
                 # Set it's UI to fire
-                self.gameField.ships[i].shipUI = QPixmap("fire.png")
+                self.gameField.ships[i].shipUI = QPixmap("res/pictures/fire.png")
 
                 # Change the pixmap (decide if it's root of ship or just part of newImage
                 for j in range (0, self.iteratorForSettingDirection):
@@ -262,7 +262,7 @@ class Label(QLabel):
 
                 # Check if the ship is sink
                 if self.gameField.ships[i].hp == 0:
-                    self.sound = QSound("splash2.wav")
+                    self.sound = QSound("res/sound/splash2.wav")
                     self.sound.play()
 
                     if self.who == "Enemy":
@@ -285,13 +285,13 @@ class Label(QLabel):
                 return True
 
             else:
-                self.sound = QSound("shot2.wav", self)
+                self.sound = QSound("res/sound/shot2.wav", self)
                 self.sound.play()
 
                 # There is no ship - miss!
                 self.gameField.shot[x][y] = 69
                 self.miss_label[self.iteratorForShooting].setGeometry(x * 30, y * 30, 25, 25)
-                self.miss_label[self.iteratorForShooting].setPixmap(QPixmap("miss.png"))
+                self.miss_label[self.iteratorForShooting].setPixmap(QPixmap("res/pictures/miss.png"))
                 self.iteratorForShooting += 1
                 if self.who == "Enemy":
                     self.window().inGameLabel.setText("")
